@@ -7,9 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'body': "url('/elite-essentialz-1.jpg')"
+      },
       colors: {
         background: "var(--background)",
-        foreground: "var(--foreground)",
+        foreground: "var(--foreground)"
       },
     },
   },
