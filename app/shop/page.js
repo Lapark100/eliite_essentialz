@@ -1,35 +1,40 @@
-"use client"
-
-import { Suspense, useState } from "react";
-import MeniItemNav from "./component/menu-item-nav";
-import Category from "./component/categories";
-import { menuItems} from "@/lib/menu-item";
+import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import Products from "./component/products";
+import Range from "./component/range";
+import MenuItemNavWrapper from "./component/menu-item-nav-wrapper";
 
-const allCategories = ['All', ...new Set(menuItems.map((item)=> item.category))]  
 
 
-export default function Page() {
-    const [items, setItems] = useState(menuItems)
-    const [categories, setCategories] = useState(allCategories)
 
-    const filterItems = (categories) => {
-        if(categories === 'All') {
-            setItems(menuItems)
-            return;
-        }
-        const newItems = menuItems.filter((items)=> items.category === categories)
-        setItems(newItems)
-    }
-    return (<div className=" my-4 space-y-6">
+
+export default function Page({searchParams}) {
+
+  const range = searchParams?.range ?? 'all'
+  
+  return (
+    <div className="my-4 space-y-6" >
+      <section className="flex justify-between">
+        <h1 className="text-2xl font-semibold">Categories</h1>
+
+        <aside>
+        <Range />
+      </aside>
+      </section>
+
+      
+
+      <section className=" my-4 space-y-6">
+
         <ErrorBoundary fallback={<div className="text-red-500 ">Cannot fetch products</div>}>
-        <Suspense>
-        <Category filterItems={filterItems} categories={categories}/>
-        <MeniItemNav menuItems={items} />
-        <Products />
-        </Suspense>
+          <Suspense>
+           <MenuItemNavWrapper range={range} />
+            <Products />
+          </Suspense>
         </ErrorBoundary>
-        
-    </div>)
+
+      </section>
+    </div>
+
+  )
 }

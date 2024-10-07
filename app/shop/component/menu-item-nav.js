@@ -6,7 +6,9 @@ import Link from "next/link"
 import Image from "next/image"
 
 
-export default function MeniItemNav({ menuItems }) {
+export default function MenuItemNav({ products }) {
+
+    
 
     const [like, setLike] = useState(false)
 
@@ -15,8 +17,8 @@ export default function MeniItemNav({ menuItems }) {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {menuItems.map((items) => {
-                const { id, name, description, image, amount } = items
+            {products.map((items) => {
+                const { id, productName, description, image, amount } = items
                 return (
                     <article key={id} className="flex flex-col w-full min-h-[400px] space-y-4 ">
                         {/* Image */}
@@ -25,15 +27,14 @@ export default function MeniItemNav({ menuItems }) {
                             width={400} 
                             height={400} 
                             className="rounded object-cover w-full h-60" 
-                            alt={name}
+                            alt={productName}
                             quality={50}
-                            placeholder="blur"
                             priority={true}
                         />
 
                         {/* Text Content */}
                         <div>
-                            <h2 className="font-bold uppercase text-lg">{name}</h2>
+                            <h2 className="font-bold uppercase text-lg">{productName}</h2>
                             <p className="text-xs">{description}</p>
                         </div>
 
