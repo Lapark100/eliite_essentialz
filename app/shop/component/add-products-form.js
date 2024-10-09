@@ -28,7 +28,8 @@ export default function AddProductsForm() {
         formData.append("date", data.date);
         formData.append("quantity", data.quantity);
         formData.append("description", data.description);
-        formData.append("image", data.image_url[0]); 
+        formData.append("image_url", data.image_url[0]); 
+        formData.append("price", data.price); 
         try {
             await createProduct(formData); // Send form data to server action
             router.push('/shop');
@@ -67,7 +68,13 @@ export default function AddProductsForm() {
                     {errors.quantity && <p className="text-red-500">{errors.quantity.message}</p>}
                 </div>
 
-                <div className="space-y-3 ">
+                <div className="space-y-3">
+                    <Label>Price</Label>
+                    <Input {...register("price", { required: "Price is required", valueAsNumber: true })} type="number" />
+                    {errors.price && <p className="text-red-500">{errors.price.message}</p>}
+                </div>
+
+                <div className="space-y-3 col-span-2">
                     <Label>Description</Label>
                     <Input {...register("description", { required: "Description is required" })} type="text" />
                     {errors.description && <p className="text-red-500">{errors.description.message}</p>}

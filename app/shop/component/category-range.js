@@ -7,5 +7,6 @@ return <Select {...props}>
 <option value="Face"> Face </option>
 <option value="Soap"> Soap </option>
 <option value="Mask"> Mask </option>
+<option value="Lip"> Lip </option>
 </Select>
 }
