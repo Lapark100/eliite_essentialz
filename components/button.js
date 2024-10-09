@@ -1,7 +1,8 @@
 export default function Button (props) {
 
 const variants = {
-    default: 'bg-white text-black rounded-md hover:bg-gray-200 disabled:opacity-20 '
+    default: 'bg-white text-black rounded-md hover:bg-gray-200 disabled:opacity-20 ',
+    product: 'bg-black text-black rounded-md hover:bg-gray-200 disabled:opacity-20 '
 }
 
 const sizes = {

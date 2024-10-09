@@ -61,9 +61,10 @@ export default function MenuItemNav({ range, products }) {
                                 <button onClick>
                                 <Heart className="w-4 h-4" />
                                 </button>
-                                <Link href="/cart">
-                                    <button className="w-10 h-10 flex justify-center items-center rounded-full bg-white/40 shadow-lg backdrop-blur-sm border border-gray-300">
+                                <Link href={`/shop/${id}/orders`}>
+                                    <button className= " px-3 w-15 h-10 space-x-2 flex justify-center items-center rounded-full bg-white/40 shadow-lg backdrop-blur-sm border border-gray-300">
                                         <ShoppingBag className="w-4 h-4" />
+                                        
                                     </button>
                                 </Link>
                             </div>
