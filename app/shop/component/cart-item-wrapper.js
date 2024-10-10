@@ -8,7 +8,7 @@ export default async function CartItemWrapper ({id}) {
         error,
     } = await supabase.from("products").select("*").eq("id", id);
 
-    console.log(cartItem)
+
 
     if (error) {
         console.error("Error fetching product");

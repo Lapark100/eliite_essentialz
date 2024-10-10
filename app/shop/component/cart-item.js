@@ -68,13 +68,13 @@ export default function CartItems({ cartItem }) {
                   <p></p>
                   <div className="space-x-2">
                     <input
-                      className="bg-white/70 shadow-lg backdrop-blur-sm border border-gray-300 py-2 px-2 rounded-full w-[100px] text-black text-center"
+                      className="bg-white/70 shadow-lg backdrop-blur-sm border border-gray-300 py-2 px-2 rounded-full w-[100px] text-black text-center focus:outline-none focus:ring-2 focus:ring-yellow-300 "
                       placeholder="1"
                       type="number"
                       value={quantity}
                       onChange={handleQuantityChange}
                     />
-                    <button className="bg-yellow-300 py-2 px-3 rounded-full text-black">
+                    <button className="bg-yellow-300 py-2 px-3 rounded-full text-black  ">
                       Add to bag <span>(₦{price * quantity})</span>
                     </button>
                   </div>
